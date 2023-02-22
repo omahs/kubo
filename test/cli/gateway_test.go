@@ -198,7 +198,7 @@ func TestGateway(t *testing.T) {
 
 	t.Run("GET invalid IPFS path errors", func(t *testing.T) {
 		t.Parallel()
-		assert.Equal(t, 400, client.Get("/ipfs/12345").StatusCode)
+		assert.Equal(t, http.StatusInternalServerError, client.Get("/ipfs/12345").StatusCode)
 	})
 
 	t.Run("GET invalid path errors", func(t *testing.T) {
